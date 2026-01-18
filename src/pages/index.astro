@@ -1,19 +1,81 @@
 ---
 import "../css/style.css";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Jens' Portfolio</title>
-		<link rel="icon" href="/favicon.svg" />
-	</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Jens' Portfolio</title>
+        <link rel="icon" href="/favicon.svg" />
+    </head>
 
-	<body>
-		<div class="hero">
-			<h1>Hey, I'm Jens Monné</h1>
-			<p>XR/VR developer</p>
-		</div>
-	</body>
+    <body>
+        <Navigation />
+
+        <header class="hero">
+            <h1>Hey, I'm Jens Monné</h1>
+            <p>
+                I build immersive experiences. Specializing in Unity, Unreal
+                Engine, and WebXR.
+            </p>
+            <div class="cta-group">
+                <a href="#projects" class="btn primary">View Projects</a>
+                <a href="#contact" class="btn secondary">Get in Touch</a>
+            </div>
+        </header>
+
+        <section id="projects" class="container">
+            <h2>Selected Work</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3>Rattle N' Roll</h3>
+                        <p>
+                            A driving simulator built for the Meta Quest 3 and
+                            Yaw 3 motion simulator.
+                        </p>
+                        <div class="tags">
+                            <span>Unity</span>
+                            <span>C#</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3>CryoSite</h3>
+                        <p>
+                            A VR shooter with multiplayer co-op built for the
+                            Meta Quest 3.
+                        </p>
+                        <div class="tags">
+                            <span>Unity</span>
+                            <span>C#</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <h2>Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Unity (C#)</div>
+                <div class="skill-item">Unreal (C++)</div>
+                <div class="skill-item">Rust</div>
+                <div class="skill-item">HTML</div>
+                <div class="skill-item">CSS</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Astro</div>
+                <div class="skill-item">Bun</div>
+            </div>
+        </section>
+
+        <Footer />
+    </body>
 </html>

@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import "../../css/style.css";
+
+interface Props {
+    entry: CollectionEntry<"projects">;
+}
+
+export async function getStaticPaths() {
+    const projectEntries = await getCollection("projects");
+    return projectEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{entry.data.title} | Jens' Portfolio</title>
+        <link rel="icon" href="/favicon.svg" />
+    </head>
+
+    <body>
+        <Navigation />
+
+        <main class="container">
+            <a href="/#projects" class="back-link">← Back to Projects</a>
+
+            <header class="project-header">
+                <h1>{entry.data.title}</h1>
+                <p class="lead">{entry.data.description}</p>
+
+                <div class="tags">
+                    {entry.data.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+            </header>
+
+            <hr />
+
+            <article class="project-content">
+                <Content />
+            </article>
+        </main>
+
+        <Footer />
+    </body>
+</html>

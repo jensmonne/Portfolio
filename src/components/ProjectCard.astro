@@ -4,13 +4,16 @@ interface Props {
     description: string;
     tags: string[];
     slug: string;
+    image: string;
 }
 
-const { title, description, tags, slug } = Astro.props;
+const { title, description, tags, slug, image } = Astro.props;
 ---
 
 <a href={`/projects/${slug}`} class="card">
-    <div class="card-image"></div>
+    <div class="image-wrapper">
+        <img src={image} alt={title} />
+    </div>
     <div class="card-content">
         <h3>{title}</h3>
         <p>{description}</p>

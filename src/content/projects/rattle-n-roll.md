@@ -2,7 +2,7 @@
 title: "Rattle N' Roll"
 description: "A driving simulator built for the Meta Quest 3 and Yaw 3 motion simulator."
 tags: ["Unity", "C#", "XR"]
-image: "/images/rattle.jpg"
+image: "/images/placeholder.png"
 ---
 
 ## The Challenge

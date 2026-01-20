@@ -244,3 +244,20 @@ footer p {
 .socials a:hover {
     text-decoration: underline;
 }
+
+.image-wrapper {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-wrapper img[src] {
+    opacity: 1;
+}

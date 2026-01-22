@@ -2,9 +2,28 @@
 import "../css/style.css";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
-import { getCollection } from "astro:content";
 import ProjectCard from "../components/ProjectCard.astro";
-const allProjects = await getCollection("projects");
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+const allProjects: CollectionEntry<"projects">[] =
+    await getCollection("projects");
+
+interface Skill {
+    name: string;
+    icon: string;
+}
+
+const skills: Skill[] = [
+    { name: "Unity (C#)", icon: "unity.svg" },
+    { name: "Unreal (C++)", icon: "unrealengine.svg" },
+    { name: "Rust", icon: "rust.svg" },
+    { name: "Astro", icon: "astro.svg" },
+    { name: "Bun", icon: "bun.svg" },
+    { name: "HTML", icon: "html5.svg" },
+    { name: "Javascript", icon: "javascript.svg" },
+    { name: "Typescript", icon: "typescript.svg" },
+    { name: "CSS", icon: "css.svg" },
+];
 ---
 
 <html lang="en">
@@ -50,14 +69,19 @@ const allProjects = await getCollection("projects");
         <section id="skills" class="container">
             <h2>Tech Stack</h2>
             <div class="skills-grid">
-                <div class="skill-item">Unity (C#)</div>
-                <div class="skill-item">Unreal (C++)</div>
-                <div class="skill-item">Rust</div>
-                <div class="skill-item">HTML</div>
-                <div class="skill-item">CSS</div>
-                <div class="skill-item">JavaScript</div>
-                <div class="skill-item">Astro</div>
-                <div class="skill-item">Bun</div>
+                {
+                    skills.map((skill) => (
+                        <div class="skill-item">
+                            <img
+                                src={`/icons/${skill.icon}`}
+                                alt={`${skill.name} icon`}
+                                width="24"
+                                height="24"
+                            />
+                            <span>{skill.name}</span>
+                        </div>
+                    ))
+                }
             </div>
         </section>
 

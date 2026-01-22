@@ -210,10 +210,24 @@ nav {
     margin-top: 1.5rem;
 }
 .skill-item {
+    display: flex;
+    align-items: center; /* Centers icon and text vertically */
+    gap: 0.75rem; /* Space between icon and text */
     border: 1px solid #444;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 8px;
-    font-weight: 500;
+    background: var(--card-bg);
+    transition: border-color 0.2s ease;
+}
+.skill-item:hover {
+    border-color: var(--accent);
+}
+
+.skill-item img {
+    /* Ensures icons don't shrink and stay consistent in size */
+    flex-shrink: 0;
+    filter: invert(1);
+    opacity: 0.8;
 }
 
 /* Footer */
